@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://contoxcuiaba.com.br/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://contoxcuiaba.com.br/assets/brand/og-contox-cuiaba.jpg</image:loc>
+      <image:title>Contox Cuiabá V 2026</image:title>
+      <image:caption>Congresso de harmonização facial e estética em Cuiabá, 27 e 28 de novembro de 2026</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://contoxcuiaba.com.br/assets/fotos/plateia-lotada-contox.webp</image:loc>
+      <image:caption>Auditório lotado durante uma edição do congresso Contox</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://contoxcuiaba.com.br/assets/fotos/local-unisenai-cuiaba.webp</image:loc>
+      <image:caption>UniSenai, Centro Universitário Senai MT, sede do Contox Cuiabá V</image:caption>
+    </image:image>
+  </url>
+</urlset>

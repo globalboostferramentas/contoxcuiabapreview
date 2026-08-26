@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Rastreadores de IA liberados: o conteudo factual do evento deve ser lido por
+# mecanismos generativos e motores de resposta.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://contoxcuiaba.com.br/sitemap.xml
