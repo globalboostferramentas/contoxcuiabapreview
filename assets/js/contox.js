@@ -105,6 +105,54 @@
     });
   }
 
+  /* ---------- público: a chamada da plateia ---------- */
+  // Os nomes sobem em cortina, um de cada vez, e depois o facho magenta corre
+  // a lista: entra pela esquerda no nome da vez e sai pela direita quando a
+  // vez passa. O ciclo só roda com a seção na tela, e o mouse trava o facho.
+  var lista = document.querySelector('.publico');
+  if (lista && 'IntersectionObserver' in window) {
+    var nomes = Array.prototype.slice.call(lista.children);
+    var atual = -1, saindo = null, timer = null, travado = false, naTela = false;
+    lista.classList.add('is-anim');
+
+    function acende(i) {
+      if (i === atual) return;
+      if (saindo) saindo.classList.remove('is-off');
+      if (atual > -1) {
+        nomes[atual].classList.remove('is-on');
+        nomes[atual].classList.add('is-off');
+        saindo = nomes[atual];
+      }
+      nomes[i].classList.remove('is-off');
+      nomes[i].classList.add('is-on');
+      atual = i;
+    }
+    function anda() { acende((atual + 1) % nomes.length); }
+    function toca() { if (!timer && !reduce && !travado && naTela) timer = setInterval(anda, 1600); }
+    function para() { clearInterval(timer); timer = null; }
+
+    nomes.forEach(function (li, i) {
+      li.addEventListener('mouseenter', function () { travado = true; para(); acende(i); });
+      li.addEventListener('mouseleave', function () { travado = false; toca(); });
+    });
+
+    var ioLista = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        naTela = e.isIntersecting;
+        if (!naTela) { para(); return; }
+        if (lista.classList.contains('is-ready')) { toca(); return; }
+        lista.classList.add('is-ready');
+        if (reduce) return;
+        setTimeout(function () {
+          lista.classList.add('is-live');
+          acende(0);
+          toca();
+        }, nomes.length * 70 + 500);
+      });
+    }, { threshold: 0.3 });
+    ioLista.observe(lista);
+  }
+
   /* ---------- reveal ---------- */
   var sticky = document.getElementById('stickyCta');
   if (!reduce && 'IntersectionObserver' in window) {
